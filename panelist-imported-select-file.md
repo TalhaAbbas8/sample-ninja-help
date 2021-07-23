@@ -2,7 +2,7 @@
 
 Panelist Importer let’s you to import panelists (members) to an existing panel or subpanel from a CSV file.
 
-You must have FIRST_NAME, LAST_NAME and EMAIL columns in your CSV file. Technically you cannot import into any data variables that are not owned by the system with the exception of
+You must have FIRST_NAME, LAST_NAME and EMAIL columns in your CSV file. Technically, you cannot import into any data variables that are not owned by the system with the exception of:
 
 - POINTS_BALANCE
 - LOCALE
@@ -10,9 +10,9 @@ You must have FIRST_NAME, LAST_NAME and EMAIL columns in your CSV file. Technica
 - EMAIL_CONFIRMED
 - RECRUITMENT_SOURCE
 
-> You can view a list of importable variables in **Data Variables** but selecting **Registration / Import writable** -class.
+> You can view a list of importable variables in **Data Variables** by selecting **Registration / Import writable** -class.
 
-> **RECRUITMENT_SOURCE** must be one of the defined under **Recruitment Sources** menu item.
+> **RECRUITMENT_SOURCE** must be one of the choices defined under **Recruitment Sources** menu item.
 
 > **BIRTH_DATE** variable is automatically checked against **minimum age to join** settings found in the **Sub Panel settings**.
 
@@ -22,7 +22,7 @@ You must have FIRST_NAME, LAST_NAME and EMAIL columns in your CSV file. Technica
 
 The easiest way to get started is to produce a test import file by clicking **GENERATE TEST IMPORT FILE**. This little tool let's you pick data variables that you would like to import. When you prepare your own import file simply follow the test import file format.
 
-> **IMPORTANT!** Do not import the file back in unless your panel is in the **SIMULATION MODE**. This is indicated on the application top toolbar with label **SIMULATION**
+> **IMPORTANT!** Do not import the file back in unless your panel is in the **SIMULATION MODE**. This is indicated on the application top toolbar with label **SIMULATION**.
 
 ## Preparing your own data file
 
@@ -33,7 +33,7 @@ Always use CSV headers that match the target variable name!
 Variables **FIRST_NAME**, **LAST_NAME** and **EMAIL** are always required.
 
 ### Blank / NULL / unknown values
-If a panelist doesn't have value for example BIRTH_DATE you may leave the value blank. If the target variable type is **checkbox** then all columns must be left blank. For example:
+If a panelist doesn't have a value, (for example BIRTH_DATE), you may leave the value blank. If the target variable type is **checkbox** then all columns must be left blank. For example:
 
 ```
 FIRST_NAME,LAST_NAME,EMAIL,BIRTH_DATE,BREXIT:Yes,BREXIT:No
@@ -42,8 +42,9 @@ Lisa,Doe,lisa@sampleninja.io,,1,0                              <-- BIRTH DATE BL
 Jack,Doe,jack@sampleninja.io,1966-04-12,,                      <-- BLANK CHECKBOX
 ```
 
+
 ### Data formats
-The importer access only values in the international formats
+The importer access only values in the international formats.
 
 #### Text
 In SampleNinja the text variables are tokenized and analyzed allowing you to store various kind of text data if desired.
@@ -54,10 +55,10 @@ For example if you store: "Brown lazy dog" you could then later search for match
 The keyword variable type requires exact match when searching. This variable type is the best choice for things like Car Make & Model, City, Region etc...
 
 #### Date
-All dates must be imported in format **2021-07-22** or **YYYY-MM-DD**. If you attempt to use for example US date notation 7/31/1976 this will not be detected as date and you will not be able to map it **Date** -data variable type.
+All dates must be imported in format **2021-07-22** or **YYYY-MM-DD**. If you attempt to use for example US date notation 7/31/1976 this will not be detected as date and you will not be able to map it to **Date** -data variable type.
 
 #### Phone
-All phone numbers must be in the international format for example US number (512) 670-4444 needs to be converted to +15126564444. If you are storing phonenumber for reference only and don't plan to use SMS functions then you can also use the **Keyword** type.
+All phone numbers must be in the international format for example US number (512) 670-4444 needs to be converted to +15126564444. If you are storing a phone number for reference only and don't plan to use SMS functions then you can also use the **Keyword** type.
 
 #### Checkbox
 Checkbox columns must be noted with target variable name followed by the option label. Checked options are noted with 1 and unchecked options are noted with 0. For example:
@@ -66,6 +67,7 @@ Checkbox columns must be noted with target variable name followed by the option 
 BREXIT:yes,BREXIT:no
 1,0
 ```
+
 
 #### Radio
 Data values must correspond to option number i.e. GENDER -> Male -> 1
@@ -111,15 +113,15 @@ The importer scans each column and attempts to discover the column's data type a
 ]
 ```
 
-When the importer has discovered suitable target variable types for CSV column it then tries to use Fuzzy logic to match **CSV COLUMN HEADER** to **DATA VARIABLE LABEL**. If match is good > 50% then the column mapper should select the target variable automatically.
+When the importer has discovered suitable target variable types for a CSV column, it then tries to use Fuzzy logic to match **CSV COLUMN HEADER** to **DATA VARIABLE LABEL**. If the match is good > 50% then the column mapper should select the target variable automatically.
 
-> If you don't see your variable listed under the mapping selection then either the data is provided in wrong format or the data variable you are trying to map to is using a wrong type. For example if CSV data type is detected as **String** you would be unable to map it to **Radio** data variable type. Please verify your data format and the desired target variable types!
+> If you don't see your variable listed under the mapping selection then either the data is provided in the wrong format or the data variable you are trying to map to is using a wrong type. For example, if the CSV data type is detected as **String** you would be unable to map it to a **Radio** data variable type. Please verify your data format and the desired target variable types!
 
 ## Using the importer
 
 ### 1.	Select file to import
 
-Click on the designated area and select a file to import or simply locate the file on your device and drag & drop it into the drop zone indicated by a dashed line.
+Click on the designated area and select a file to import. Or simply locate the file on your device and drag & drop it into the drop zone (indicated by a dashed line).
 
 ### 2.	Inspection
 
@@ -137,7 +139,7 @@ If the system cannot auto-map a variable you have the options of either:
 2.	Leaving this variable out in the import by clicking on **ignore this column** button.
 
 If the later is chosen, the variable in question will be skipped and left out from the import. 
-Where there are missing values or validation failures a warning message is displayed against the variable in question. For more detailed inspection of the error, simply click on the error text.
+Where there are missing values or validation failures, a warning message is displayed against the variable in question. For a more detailed inspection of the error, simply click on the error text.
 
 ### 4.	Upload
 
@@ -154,7 +156,7 @@ You can assign or specify the following before clicking the **Upload** button:
 
 The result of the outcome of the upload is displayed here. You can see how many panelists were successfully imported and similarly the number of panelists that couldn’t be imported. Any errors are highlighted in red. If you mouse over the error items you will see more details description of the error.
 
-If you import contains any errors the system will automatically generate an results file containing all the CSV lines with errors and explanation how to fix. This file is automatically placed in your downloads. Select **Downloads** from the main menu to go to downloads or click on the **Downloads** -button in the importer results screen. 
+If your import contains any errors, the system will automatically generate a results file containing all the CSV lines with errors and explanations on how to fix. This file is automatically placed in your downloads. Select **Downloads** from the main menu to go to downloads or click on the **Downloads** -button in the importer results screen. 
 
 > Use the results file to iteratively fix issues. Download the file and fix the indicated issues. You can re-import the results file with the error comments in place!
 
